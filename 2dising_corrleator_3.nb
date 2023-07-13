@@ -1,0 +1,1974 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     83838,       1966]
+NotebookOptionsPosition[     79414,       1896]
+NotebookOutlinePosition[     79892,       1915]
+CellTagsIndexPosition[     79849,       1912]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Prerun", "Subsection",
+ CellChangeTimes->{{3.8612316173137274`*^9, 
+  3.861231619105956*^9}},ExpressionUUID->"e207cf0e-3bf6-4ec3-8d3a-\
+383e19defd0e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dir", "=", 
+   RowBox[{"SetDirectory", "[", 
+    RowBox[{"NotebookDirectory", "[", "]"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[56]:=",ExpressionUUID->"5ebfa2dd-ffe2-4bec-a229-35e41502ec19"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"nodenum", "=", "20"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SDPBversion", "=", "\"\<2.5.1\>\""}], ";"}]}], "Input",
+ CellChangeTimes->{{3.8612809663364143`*^9, 3.8612809665246983`*^9}, {
+  3.8613164830474806`*^9, 3.8613164832478533`*^9}, {3.8752805797800093`*^9, 
+  3.875280580088814*^9}, {3.875313810301015*^9, 3.875313810365116*^9}, {
+  3.875369568389477*^9, 3.8753695701919603`*^9}, {3.8753753832862377`*^9, 
+  3.875375383507472*^9}, {3.8757112939739733`*^9, 3.875711294218506*^9}, {
+  3.8757127781861277`*^9, 3.8757127801972437`*^9}, {3.875888690205098*^9, 
+  3.875888691464498*^9}, {3.8758903107085752`*^9, 3.875890310911151*^9}, {
+  3.892511052497862*^9, 3.892511052682605*^9}, {3.8929467956141214`*^9, 
+  3.8929467958318806`*^9}},
+ CellLabel->"In[57]:=",ExpressionUUID->"d2452400-785d-47a8-b2dd-53b63b3547c4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"os", "=", "\"\<win10\>\""}], ";"}]], "Input",
+ CellChangeTimes->{{3.8925109777270737`*^9, 3.892510980604269*^9}, {
+  3.892946779840537*^9, 3.8929467866102595`*^9}},
+ CellLabel->"In[59]:=",ExpressionUUID->"3a495112-7f3e-4073-808a-cc4fcbe48a9a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Nprec", "=", "200"}], ";"}]], "Input",
+ CellChangeTimes->{{3.8783777459158115`*^9, 3.878377745989318*^9}},
+ CellLabel->"In[60]:=",ExpressionUUID->"b9e0f4e4-1d6a-428b-897f-c863582c5521"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"<<", "\"\<SDPB.m\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"<<", "\"\<Bootstrap2dExample.m\>\""}], ";"}]}], "Input",
+ CellChangeTimes->{3.892924279950694*^9},
+ CellLabel->"In[61]:=",ExpressionUUID->"c25e80e9-e398-4d62-a420-453877e16480"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetPrecision", "precsm", 
+   "\"\:8981\:6c42\:7684\:7cbe\:5ea6 \\!\\(\\*RowBox[{\\\"200\\\"}]\\) \:5c0f\
+\:4e8e $MinPrecision. \:4f7f\:7528 $MinPrecision.\"", 2, 61, 17, 
+   27922334328357154343, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.894512173036791*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[61]:=",ExpressionUUID->"6e2c56f0-f5cd-41c4-b066-\
+16c9d7a2e327"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetPrecision", "precsm", 
+   "\"\:8981\:6c42\:7684\:7cbe\:5ea6 \\!\\(\\*RowBox[{\\\"200\\\"}]\\) \:5c0f\
+\:4e8e $MinPrecision. \:4f7f\:7528 $MinPrecision.\"", 2, 62, 18, 
+   27922334328357154343, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.894512173048168*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[61]:=",ExpressionUUID->"65804bae-ae96-4b73-8a75-\
+860a94d11113"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetPrecision", "precsm", 
+   "\"\:8981\:6c42\:7684\:7cbe\:5ea6 \\!\\(\\*RowBox[{\\\"200\\\"}]\\) \:5c0f\
+\:4e8e $MinPrecision. \:4f7f\:7528 $MinPrecision.\"", 2, 62, 19, 
+   27922334328357154343, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.894512173054205*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[61]:=",ExpressionUUID->"46af929d-feb6-4d4c-99a7-\
+873f1d4ec4f4"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetAttributes", "[", 
+   RowBox[{"zzb", ",", "Orderless"}], "]"}], ";"}]], "Input",
+ CellLabel->"In[63]:=",ExpressionUUID->"7d452c5c-c5b9-4696-9ce9-038564a2d17a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Exact block function", "Subsection",
+ CellChangeTimes->{{3.892925623721986*^9, 
+  3.892925626986429*^9}},ExpressionUUID->"24361b7a-77db-4bc2-937c-\
+d341cadaaae7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Fblocksingle2d", "[", 
+   RowBox[{
+   "\[CapitalDelta]phi_", ",", "\[CapitalDelta]_", ",", "s_", ",", 
+    "\[CapitalLambda]max_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "polytb", ",", "d\[Phi]", ",", "Gb", ",", "k", ",", "zzbrep", ",", 
+      "Fb"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"d\[Phi]", "=", 
+      RowBox[{"SetPrecision", "[", 
+       RowBox[{"\[CapitalDelta]phi", ",", "Nprec"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"k", "[", 
+       RowBox[{"h_", ",", "z_"}], "]"}], ":=", 
+      RowBox[{
+       SuperscriptBox["z", 
+        FractionBox["h", "2"]], 
+       RowBox[{"Hypergeometric2F1", "[", 
+        RowBox[{
+         FractionBox["h", "2"], ",", 
+         FractionBox["h", "2"], ",", "h", ",", "z"}], "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Gb", "=", 
+      RowBox[{
+       FractionBox["1", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"-", "2"}], ")"}], "s"], 
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"KroneckerDelta", "[", 
+            RowBox[{"s", ",", "0"}], "]"}]}], ")"}]}]], 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"k", "[", 
+           RowBox[{
+            RowBox[{"\[CapitalDelta]", "+", "s"}], ",", "z"}], "]"}], 
+          RowBox[{"k", "[", 
+           RowBox[{
+            RowBox[{"\[CapitalDelta]", "-", "s"}], ",", "zb"}], "]"}]}], "+", 
+         RowBox[{
+          RowBox[{"k", "[", 
+           RowBox[{
+            RowBox[{"\[CapitalDelta]", "+", "s"}], ",", "zb"}], "]"}], 
+          RowBox[{"k", "[", 
+           RowBox[{
+            RowBox[{"\[CapitalDelta]", "-", "s"}], ",", "z"}], "]"}]}]}], 
+        ")"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Fb", "=", 
+      RowBox[{"2", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"1", "-", "z"}], ")"}], "d\[Phi]"], 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"1", "-", "zb"}], ")"}], "d\[Phi]"], "Gb"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"polytb", "=", 
+      RowBox[{
+       RowBox[{"oddDerivs", "[", "\[CapitalLambda]max", "]"}], "/.", 
+       RowBox[{
+        RowBox[{"zzbDeriv", "[", 
+         RowBox[{"a1_", ",", "a2_"}], "]"}], ":>", 
+        RowBox[{
+         RowBox[{"a1", "!"}], 
+         RowBox[{"a2", "!"}], 
+         RowBox[{"SeriesCoefficient", "[", 
+          RowBox[{"Fb", ",", 
+           RowBox[{"{", 
+            RowBox[{"z", ",", 
+             FractionBox["1", "2"], ",", "a1"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"zb", ",", 
+             FractionBox["1", "2"], ",", "a2"}], "}"}]}], "]"}]}]}]}]}], ";", 
+     "\[IndentingNewLine]", "polytb"}]}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.892925945742545*^9, 3.8929259603352947`*^9}, {
+  3.8929371688452177`*^9, 3.89293717090279*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"100aa9b1-c89c-409d-b9fb-a169227af89f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SDPB Function", "Subsection",
+ CellChangeTimes->{{3.7923886115722017`*^9, 3.792388612733081*^9}, {
+  3.880588303390851*^9, 
+  3.880588307257419*^9}},ExpressionUUID->"964a5baa-3545-4efe-8ed2-\
+7d0d9abc89a5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"sdpboutputjdg", "[", "message_", "]"}], ":=", 
+   RowBox[{"Which", "[", 
+    RowBox[{
+     RowBox[{"StringContainsQ", "[", 
+      RowBox[{"message", ",", "\"\<found primal-dual optimal solution\>\""}], 
+      "]"}], ",", "\"\<found primal-dual optimal solution\>\"", ",", 
+     RowBox[{"StringContainsQ", "[", 
+      RowBox[{"message", ",", "\"\<found primal feasible solution\>\""}], 
+      "]"}], ",", "\"\<found primal feasible solution\>\"", ",", 
+     RowBox[{"StringContainsQ", "[", 
+      RowBox[{"message", ",", "\"\<found dual feasible solution\>\""}], "]"}],
+      ",", "\"\<found dual feasible solution\>\"", ",", 
+     RowBox[{"StringContainsQ", "[", 
+      RowBox[{"message", ",", "\"\<primal feasible jump detected\>\""}], 
+      "]"}], ",", "\"\<primal feasible jump detected\>\"", ",", 
+     RowBox[{"StringContainsQ", "[", 
+      RowBox[{"message", ",", "\"\<dual feasible jump detected\>\""}], "]"}], 
+     ",", "\"\<dual feasible jump detected\>\"", ",", 
+     RowBox[{"StringContainsQ", "[", 
+      RowBox[{"message", ",", "\"\<maxIterations exceeded\>\""}], "]"}], ",", 
+     "\"\<maxIterations exceeded\>\"", ",", 
+     RowBox[{"StringContainsQ", "[", 
+      RowBox[{"message", ",", "\"\<maxRuntime exceeded\>\""}], "]"}], ",", 
+     "\"\<maxRuntime exceeded\>\"", ",", 
+     RowBox[{"StringContainsQ", "[", 
+      RowBox[{"message", ",", "\"\<maxComplementarity exceeded\>\""}], "]"}], 
+     ",", "\"\<maxComplementarity exceeded\>\""}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[65]:=",ExpressionUUID->"0a879350-ee30-45f7-81ba-ee981ef8f728"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Readfunctionalraw", "[", 
+   RowBox[{"file_", ",", "num_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"tem", ",", "vec"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"tem", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Import", "[", 
+           RowBox[{"file", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<Lines\>\"", ",", "i"}], "}"}]}], "]"}], "//", 
+          RowBox[{
+           RowBox[{"StringReplace", "[", 
+            RowBox[{"#", ",", 
+             RowBox[{"\"\<e\>\"", "\[Rule]", "\"\<*10^\>\""}]}], "]"}], 
+           "&"}]}], "//", "ToExpression"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "2", ",", "num"}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", "tem"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.846604904537236*^9, 3.846604921525763*^9}, 
+   3.880587584334569*^9, {3.880587647105507*^9, 3.880587647696794*^9}, {
+   3.880588515707893*^9, 3.8805885166025133`*^9}},
+ CellLabel->"In[66]:=",ExpressionUUID->"2c4c7eac-c666-4940-ad91-f6dde76d421d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"restoreCoefficients", "[", 
+    RowBox[{"yVector_", ",", "norm_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", "\n", "\t", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Alpha]", ",", 
+       RowBox[{"j", "=", 
+        RowBox[{"maxIndexBy", "[", 
+         RowBox[{"norm", ",", "Abs"}], "]"}]}], ",", 
+       RowBox[{"length", "=", 
+        RowBox[{"Length", "[", "norm", "]"}]}], ",", "shortNorm"}], "}"}], 
+     ",", "\n", "\t", 
+     RowBox[{
+      RowBox[{"shortNorm", "=", 
+       RowBox[{"Delete", "[", 
+        RowBox[{"norm", ",", "j"}], "]"}]}], ";", "\n", 
+      RowBox[{"\[Alpha]", "=", 
+       RowBox[{"Array", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"#", "/.", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"i_", ":>", 
+              RowBox[{
+               RowBox[{"yVector", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "/;", 
+               RowBox[{"i", "<", "j"}]}]}], ",", 
+             RowBox[{"i_", ":>", 
+              RowBox[{
+               RowBox[{"yVector", "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "-", "1"}], "]"}], "]"}], "/;", 
+               RowBox[{"i", ">", "j"}]}]}], ",", 
+             RowBox[{"i_", ":>", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{"1", "-", 
+                  RowBox[{"yVector", ".", "shortNorm"}]}], ")"}], "/", 
+                RowBox[{"norm", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}]}], "/;", 
+               RowBox[{"i", "==", "j"}]}]}]}], "}"}]}], "&"}], ",", 
+         "length"}], "]"}]}], ";", "\n", "\t", 
+      RowBox[{"Return", "[", "\[Alpha]", "]"}], ";"}]}], "\n", "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[67]:=",ExpressionUUID->"e39e445b-a1ee-4aa7-b802-f2d834797703"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Readfunctional", "[", 
+   RowBox[{"input_", ",", "norm_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"num", ",", "rawvec", ",", "yvec", ",", "filename"}], "}"}], ",",
+     "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"filename", "=", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{"input", ",", "\"\<_out/y.txt\>\""}], "}"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"num", "=", 
+      RowBox[{"Length", "[", "norm", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"rawvec", "=", 
+      RowBox[{"Readfunctionalraw", "[", 
+       RowBox[{"filename", ",", "num"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"yvec", "=", 
+      RowBox[{"restoreCoefficients", "[", 
+       RowBox[{"rawvec", ",", "norm"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     "yvec"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.880588519744237*^9, 3.880588637363377*^9}},
+ CellLabel->"In[68]:=",ExpressionUUID->"4ded8c63-9aca-4400-9097-2e938bc856b7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"runsdpbfeasbility", "[", 
+    RowBox[{"file_", ",", "input_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"os", "==", "\"\<mac\>\""}], ",", 
+     RowBox[{"runsdpbmacfeasbility", "[", 
+      RowBox[{"file", ",", "input"}], "]"}], ",", 
+     RowBox[{"runsdpbwin10feasibility", "[", 
+      RowBox[{"file", ",", "input"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.880588032975786*^9, 3.880588099518615*^9}, 
+   3.880595186236618*^9},
+ CellLabel->"In[69]:=",ExpressionUUID->"6cb45898-a287-445e-bb41-57d6504e7094"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"runsdpbmacfeasbility", "[", 
+   RowBox[{"file_", ",", "input_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"message", ",", "jdg"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"RunProcess", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<docker\>\"", ",", "\"\<run\>\"", ",", "\"\<-v\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"StringReplace", "[", 
+             RowBox[{"dir", ",", 
+              RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], ",", 
+            "\"\<:/data\>\""}], "}"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<wlandry/sdpb:\>\"", ",", "SDPBversion"}], "]"}], ",", 
+         "\"\<mpirun\>\"", ",", "\"\<--allow-run-as-root\>\"", ",", 
+         "\"\<--oversubscribe\>\"", ",", "\"\<-np\>\"", ",", 
+         RowBox[{"nodenum", "//", "ToString"}], ",", "\"\<pvm2sdp\>\"", ",", 
+         "\"\<1024\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{"\"\</data/\>\"", ",", "file"}], "}"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{"\"\</data/\>\"", ",", "input"}], "}"}], "]"}]}], "}"}], 
+       ",", "\"\<StandardOutput\>\"", ",", 
+       RowBox[{"ProcessEnvironment", "\[Rule]", 
+        RowBox[{"<|", 
+         RowBox[{"\"\<PATH\>\"", "\[Rule]", 
+          RowBox[{"\"\</usr/local/bin:\>\"", "<>", 
+           RowBox[{"Environment", "[", "\"\<PATH\>\"", "]"}]}]}], "|>"}]}]}], 
+      "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"message", "=", 
+      RowBox[{
+       RowBox[{"RunProcess", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<docker\>\"", ",", "\"\<run\>\"", ",", "\"\<-v\>\"", ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"StringReplace", "[", 
+               RowBox[{"dir", ",", 
+                RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], 
+              ",", "\"\<:/data\>\""}], "}"}], "]"}], ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"\"\<wlandry/sdpb:\>\"", ",", "SDPBversion"}], "]"}], 
+           ",", "\"\<mpirun\>\"", ",", "\"\<--allow-run-as-root\>\"", ",", 
+           "\"\<--oversubscribe\>\"", ",", "\"\<-np\>\"", ",", 
+           RowBox[{"nodenum", "//", "ToString"}], ",", "\"\<sdpb\>\"", ",", 
+           "\"\<--precision=1024\>\"", ",", "\"\<--maxIterations=1000\>\"", 
+           ",", "\"\<--primalErrorThreshold=1e-40\>\"", ",", 
+           "\"\<--dualErrorThreshold=1e-40\>\"", ",", 
+           "\"\<--dualityGapThreshold=1e-60\>\"", ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\<--procsPerNode=\>\"", ",", 
+              RowBox[{"nodenum", "//", "ToString"}]}], "}"}], "]"}], ",", 
+           "\"\<--detectPrimalFeasibleJump\>\"", ",", 
+           "\"\<--detectDualFeasibleJump\>\"", ",", "\"\<-s\>\"", ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\</data/\>\"", ",", "input"}], "}"}], "]"}]}], "}"}], 
+         ",", "\"\<StandardOutput\>\"", ",", 
+         RowBox[{"ProcessEnvironment", "\[Rule]", 
+          RowBox[{"<|", 
+           RowBox[{"\"\<PATH\>\"", "\[Rule]", 
+            RowBox[{"\"\</usr/local/bin:\>\"", "<>", 
+             RowBox[{"Environment", "[", "\"\<PATH\>\"", "]"}]}]}], 
+           "|>"}]}]}], "]"}], "//", "ToString"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"sdpboutputjdg", "[", "message", "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.880587828905196*^9, 3.880587893230331*^9}},
+ CellLabel->"In[70]:=",ExpressionUUID->"2d958fdb-d396-4424-8dab-cf885873a22f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"runsdpbwin10feasibility", "[", 
+   RowBox[{"file_", ",", "input_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"message", ",", "jdg"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"RunProcess", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<powershell\>\"", ",", "\"\<docker\>\"", ",", "\"\<run\>\"", ",", 
+         "\"\<-v\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"StringReplace", "[", 
+             RowBox[{"dir", ",", 
+              RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], ",", 
+            "\"\<:/data\>\""}], "}"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<wlandry/sdpb:\>\"", ",", "SDPBversion"}], "]"}], ",", 
+         "\"\<mpirun\>\"", ",", "\"\<--allow-run-as-root\>\"", ",", 
+         "\"\<--oversubscribe\>\"", ",", "\"\<-np\>\"", ",", 
+         RowBox[{"nodenum", "//", "ToString"}], ",", "\"\<pvm2sdp\>\"", ",", 
+         "\"\<1024\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{"\"\</data/\>\"", ",", "file"}], "}"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{"\"\</data/\>\"", ",", "input"}], "}"}], "]"}]}], "}"}], 
+       ",", "\"\<StandardOutput\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"message", "=", 
+      RowBox[{"RunProcess", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<powershell\>\"", ",", "\"\<docker\>\"", ",", "\"\<run\>\"", 
+          ",", "\"\<-v\>\"", ",", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"StringReplace", "[", 
+              RowBox[{"dir", ",", 
+               RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], 
+             ",", "\"\<:/data\>\""}], "}"}], "]"}], ",", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<wlandry/sdpb:\>\"", ",", "SDPBversion"}], "]"}], ",", 
+          "\"\<mpirun\>\"", ",", "\"\<--allow-run-as-root\>\"", ",", 
+          "\"\<--oversubscribe\>\"", ",", "\"\<-np\>\"", ",", 
+          RowBox[{"nodenum", "//", "ToString"}], ",", "\"\<sdpb\>\"", ",", 
+          "\"\<--precision=1024\>\"", ",", "\"\<--maxIterations=1000\>\"", 
+          ",", "\"\<--primalErrorThreshold=1e-40\>\"", ",", 
+          "\"\<--dualErrorThreshold=1e-40\>\"", ",", 
+          "\"\<--dualityGapThreshold=1e-60\>\"", "\:ff0c", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"\"\<--procsPerNode=\>\"", ",", 
+             RowBox[{"nodenum", "//", "ToString"}]}], "}"}], "]"}], ",", 
+          "\"\<--detectPrimalFeasibleJump\>\"", ",", 
+          "\"\<--detectDualFeasibleJump\>\"", ",", "\"\<-s\>\"", ",", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"\"\</data/\>\"", ",", "input"}], "}"}], "]"}]}], "}"}], 
+        ",", "\"\<StandardOutput\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"sdpboutputjdg", "[", "message", "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellLabel->"In[71]:=",ExpressionUUID->"dcd7d24d-8037-4358-ad1f-02edc7011407"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"runsdpbmacobj", "[", 
+   RowBox[{"file_", ",", "input_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "message", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"RunProcess", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<docker\>\"", ",", "\"\<run\>\"", ",", "\"\<-v\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"StringReplace", "[", 
+             RowBox[{"dir", ",", 
+              RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], ",", 
+            "\"\<:/data\>\""}], "}"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<wlandry/sdpb:\>\"", ",", "SDPBversion"}], "]"}], ",", 
+         "\"\<mpirun\>\"", ",", "\"\<--allow-run-as-root\>\"", ",", 
+         "\"\<--oversubscribe\>\"", ",", "\"\<-np\>\"", ",", 
+         RowBox[{"nodenum", "//", "ToString"}], ",", "\"\<pvm2sdp\>\"", ",", 
+         "\"\<1024\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{"\"\</data/\>\"", ",", "file"}], "}"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{"\"\</data/\>\"", ",", "input"}], "}"}], "]"}]}], "}"}], 
+       ",", "\"\<StandardOutput\>\"", ",", 
+       RowBox[{"ProcessEnvironment", "\[Rule]", 
+        RowBox[{"<|", 
+         RowBox[{"\"\<PATH\>\"", "\[Rule]", 
+          RowBox[{"\"\</usr/local/bin:\>\"", "<>", 
+           RowBox[{"Environment", "[", "\"\<PATH\>\"", "]"}]}]}], "|>"}]}]}], 
+      "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"message", "=", 
+      RowBox[{
+       RowBox[{"RunProcess", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<docker\>\"", ",", "\"\<run\>\"", ",", "\"\<-v\>\"", ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"StringReplace", "[", 
+               RowBox[{"dir", ",", 
+                RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], 
+              ",", "\"\<:/data\>\""}], "}"}], "]"}], ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"\"\<wlandry/sdpb:\>\"", ",", "SDPBversion"}], "]"}], 
+           ",", "\"\<mpirun\>\"", ",", "\"\<--allow-run-as-root\>\"", ",", 
+           "\"\<--oversubscribe\>\"", ",", "\"\<-np\>\"", ",", 
+           RowBox[{"nodenum", "//", "ToString"}], ",", "\"\<sdpb\>\"", ",", 
+           "\"\<--precision=1024\>\"", ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\<--procsPerNode=\>\"", ",", 
+              RowBox[{"nodenum", "//", "ToString"}]}], "}"}], "]"}], ",", 
+           "\"\<-s\>\"", ",", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"{", 
+             RowBox[{"\"\</data/\>\"", ",", "input"}], "}"}], "]"}]}], "}"}], 
+         ",", "\"\<StandardOutput\>\"", ",", 
+         RowBox[{"ProcessEnvironment", "\[Rule]", 
+          RowBox[{"<|", 
+           RowBox[{"\"\<PATH\>\"", "\[Rule]", 
+            RowBox[{"\"\</usr/local/bin:\>\"", "<>", 
+             RowBox[{"Environment", "[", "\"\<PATH\>\"", "]"}]}]}], 
+           "|>"}]}]}], "]"}], "//", "ToString"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"sdpboutputjdg", "[", "message", "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.843504643433069*^9, 3.843504648244359*^9}, {
+   3.845571639331736*^9, 3.845571652106657*^9}, {3.845572340538271*^9, 
+   3.845572343155253*^9}, {3.880587297463881*^9, 3.880587297676437*^9}, 
+   3.8805879209303913`*^9},
+ CellLabel->"In[72]:=",ExpressionUUID->"8402814b-1af7-4f30-a2f2-1657152618c0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"runsdpbwin10obj", "[", 
+   RowBox[{"file_", ",", "input_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "message", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"RunProcess", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<powershell\>\"", ",", "\"\<docker\>\"", ",", "\"\<run\>\"", ",", 
+         "\"\<-v\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"StringReplace", "[", 
+             RowBox[{"dir", ",", 
+              RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], ",", 
+            "\"\<:/data\>\""}], "}"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<wlandry/sdpb:\>\"", ",", "SDPBversion"}], "]"}], ",", 
+         "\"\<mpirun\>\"", ",", "\"\<--allow-run-as-root\>\"", ",", 
+         "\"\<--oversubscribe\>\"", ",", "\"\<-np\>\"", ",", 
+         RowBox[{"nodenum", "//", "ToString"}], ",", "\"\<pvm2sdp\>\"", ",", 
+         "\"\<1024\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{"\"\</data/\>\"", ",", "file"}], "}"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{"\"\</data/\>\"", ",", "input"}], "}"}], "]"}]}], "}"}], 
+       ",", "\"\<StandardOutput\>\""}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"message", "=", 
+      RowBox[{"RunProcess", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<powershell\>\"", ",", "\"\<docker\>\"", ",", "\"\<run\>\"", 
+          ",", "\"\<-v\>\"", ",", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"StringReplace", "[", 
+              RowBox[{"dir", ",", 
+               RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], 
+             ",", "\"\<:/data\>\""}], "}"}], "]"}], ",", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"\"\<wlandry/sdpb:\>\"", ",", "SDPBversion"}], "]"}], ",", 
+          "\"\<mpirun\>\"", ",", "\"\<--allow-run-as-root\>\"", ",", 
+          "\"\<--oversubscribe\>\"", ",", "\"\<-np\>\"", ",", 
+          RowBox[{"nodenum", "//", "ToString"}], ",", "\"\<sdpb\>\"", ",", 
+          "\"\<--precision=1024\>\"", ",", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"\"\<--procsPerNode=\>\"", ",", 
+             RowBox[{"nodenum", "//", "ToString"}]}], "}"}], "]"}], ",", 
+          "\"\<-s\>\"", ",", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"\"\</data/\>\"", ",", "input"}], "}"}], "]"}]}], "}"}], 
+        ",", "\"\<StandardOutput\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"sdpboutputjdg", "[", "message", "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.847631398481673*^9, 3.8476314100733852`*^9}, {
+   3.880587291143283*^9, 3.8805872923179417`*^9}, 3.880587924488257*^9},
+ CellLabel->"In[73]:=",ExpressionUUID->"c2d718e9-7902-4712-adf4-7a669126067f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"runsdpbobj", "[", 
+    RowBox[{"file_", ",", "input_"}], "]"}], ":=", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"os", "==", "\"\<mac\>\""}], ",", 
+     RowBox[{"runsdpbmacobj", "[", 
+      RowBox[{"file", ",", "input"}], "]"}], ",", 
+     RowBox[{"runsdpbwin10obj", "[", 
+      RowBox[{"file", ",", "input"}], "]"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.8805881146657248`*^9, 3.880588122008707*^9}, 
+   3.880588502019884*^9},
+ CellLabel->"In[74]:=",ExpressionUUID->"c15888fb-b46e-45ee-921c-c6f695c30161"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getspectrummacminz0", "[", 
+   RowBox[{"cc_", ",", "xmlfile_", ",", "input_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "rawdata", ",", "zerotable", ",", "Prec", ",", "tb1", ",", "tb2", ",", 
+      "tb3", ",", "tb4"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Prec", "=", "10"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"RunProcess", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\<docker\>\"", ",", "\"\<run\>\"", ",", "\"\<-v\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"StringReplace", "[", 
+             RowBox[{"dir", ",", 
+              RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], ",", 
+            "\"\<:/data\>\""}], "}"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<wlandry/sdpb:\>\"", ",", "SDPBversion"}], "]"}], ",", 
+         "\"\<mpirun\>\"", ",", "\"\<--allow-run-as-root\>\"", ",", 
+         "\"\<--oversubscribe\>\"", ",", "\"\<-np\>\"", ",", 
+         RowBox[{"nodenum", "//", "ToString"}], ",", "\"\<spectrum\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<--input=data/\>\"", ",", "xmlfile"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{
+          "\"\<--solution=data/\>\"", ",", "input", ",", "\"\<_out\>\""}], 
+          "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<--threshold=1e-\>\"", ",", 
+           RowBox[{"ToString", "[", "Prec", "]"}]}], "]"}], ",", 
+         "\"\<--format=PVM\>\"", ",", "\"\<--output=data/new.json\>\"", ",", 
+         "\"\<--precision=1024\>\""}], "}"}], ",", "\"\<StandardOutput\>\"", 
+       ",", 
+       RowBox[{"ProcessEnvironment", "\[Rule]", 
+        RowBox[{"<|", 
+         RowBox[{"\"\<PATH\>\"", "\[Rule]", 
+          RowBox[{"\"\</usr/local/bin:\>\"", "<>", 
+           RowBox[{"Environment", "[", "\"\<PATH\>\"", "]"}]}]}], "|>"}]}]}], 
+      "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"rawdata", "=", 
+      RowBox[{"Import", "[", "\"\<new.json\>\"", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"tb1", "=", 
+      RowBox[{
+       RowBox[{"\"\<zeros\>\"", "/.", "rawdata"}], "//", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<zero\>\"", ",", "\"\<lambda\>\""}], "}"}], "/.", "#"}],
+         "&"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"tb2", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{"0", ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"Length", "[", "tb1", "]"}]}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"tb2", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "=", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"tb1", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "//", 
+          RowBox[{
+           RowBox[{"#", "/.", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"a_", ",", 
+               RowBox[{"{", "b_", "}"}]}], "}"}], ":>", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"ToExpression", "[", 
+                 RowBox[{"StringReplace", "[", 
+                  RowBox[{"a", ",", 
+                   RowBox[{"\"\<e\>\"", "\[Rule]", "\"\<*10^\>\""}]}], "]"}], 
+                 "]"}], "+", "i", "-", "1"}], ",", 
+               RowBox[{"ToExpression", "[", 
+                RowBox[{"StringReplace", "[", 
+                 RowBox[{"b", ",", 
+                  RowBox[{"\"\<e\>\"", "\[Rule]", "\"\<*10^\>\""}]}], "]"}], 
+                "]"}], ",", 
+               RowBox[{"i", "-", "1"}]}], "}"}]}]}], "&"}]}], ")"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "tb1", "]"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"tb3", "=", 
+      RowBox[{
+       RowBox[{"tb2", "//", 
+        RowBox[{
+         RowBox[{"DeleteCases", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<zero\>\"", ",", "\"\<lambda\>\""}], "}"}]}], "]"}], 
+         "&"}]}], "//", 
+       RowBox[{
+        RowBox[{"Flatten", "[", 
+         RowBox[{"#", ",", "1"}], "]"}], "&"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"tb4", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"tb3", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", 
+          RowBox[{"tb3", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "3"}], "]"}], "]"}], ",", 
+          RowBox[{"2", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"tb3", "[", 
+              RowBox[{"[", 
+               RowBox[{"i", ",", "2"}], "]"}], "]"}], "^", "2"}], 
+            RowBox[{"DampedRational", "[", 
+             RowBox[{
+              SuperscriptBox["E", 
+               RowBox[{
+                FractionBox[
+                 RowBox[{"-", "\[Pi]"}], "6"], "+", 
+                RowBox[{"cc", " ", 
+                 FractionBox["\[Pi]", "6"]}]}]], ",", 
+              RowBox[{"{", "}"}], ",", 
+              SuperscriptBox["E", 
+               RowBox[{
+                RowBox[{"-", "2"}], "\[Pi]"}]], ",", 
+              RowBox[{"tb3", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", ",", "1"}], "]"}], "]"}]}], "]"}]]}]}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"Length", "[", "tb3", "]"}]}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"DeleteFile", "[", "\"\<new.json\>\"", "]"}], ";", 
+     "\[IndentingNewLine]", "tb4"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.880588191004224*^9, 3.880588222380883*^9}, {
+   3.880589010793783*^9, 3.880589019972427*^9}, 3.8805892261004257`*^9, {
+   3.880590215138763*^9, 3.880590219785774*^9}, {3.880590717609448*^9, 
+   3.8805907196181707`*^9}, 3.8805940476570787`*^9, {3.8805941941701403`*^9, 
+   3.880594194623763*^9}, {3.880594420870945*^9, 3.880594420925728*^9}, {
+   3.880594582901877*^9, 3.8805945835207853`*^9}, {3.880594795100363*^9, 
+   3.8805947952823973`*^9}, {3.883236796541048*^9, 3.883236797134796*^9}, {
+   3.8832369761354113`*^9, 3.8832369764383087`*^9}, {3.883476081937437*^9, 
+   3.883476089615835*^9}, 3.885336844282633*^9, 3.88533725434818*^9, 
+   3.885337431157114*^9, 3.8853375203971977`*^9, {3.887471382186335*^9, 
+   3.887471390529807*^9}},
+ CellLabel->"In[75]:=",ExpressionUUID->"932bef83-afa4-4c6e-acaa-0cbcce8a9e63"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getspectrumwin10minz0", "[", 
+   RowBox[{"cc_", ",", "xmlfile_", ",", "input_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "rawdata", ",", "zerotable", ",", "Prec", ",", "tb1", ",", "tb2", ",", 
+      "tb3", ",", "tb4"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Prec", "=", "10"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"RunProcess", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<powershell\>\"", ",", "\"\<docker\>\"", ",", "\"\<run\>\"", ",", 
+         "\"\<-v\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"StringReplace", "[", 
+             RowBox[{"dir", ",", 
+              RowBox[{"\"\<\\\\\>\"", "\[Rule]", "\"\</\>\""}]}], "]"}], ",", 
+            "\"\<:/data\>\""}], "}"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<wlandry/sdpb:\>\"", ",", "SDPBversion"}], "]"}], ",", 
+         "\"\<mpirun\>\"", ",", "\"\<--allow-run-as-root\>\"", ",", 
+         "\"\<--oversubscribe\>\"", ",", "\"\<-np\>\"", ",", 
+         RowBox[{"nodenum", "//", "ToString"}], ",", "\"\<spectrum\>\"", ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<--input=data/\>\"", ",", "xmlfile"}], "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{
+          "\"\<--solution=data/\>\"", ",", "input", ",", "\"\<_out\>\""}], 
+          "]"}], ",", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<--threshold=1e-\>\"", ",", 
+           RowBox[{"ToString", "[", "Prec", "]"}]}], "]"}], ",", 
+         "\"\<--format=PVM\>\"", ",", "\"\<--output=data/new.json\>\"", ",", 
+         "\"\<--precision=1024\>\""}], "}"}], ",", "\"\<StandardOutput\>\""}],
+       "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"rawdata", "=", 
+      RowBox[{"Import", "[", "\"\<new.json\>\"", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"tb1", "=", 
+      RowBox[{
+       RowBox[{"\"\<zeros\>\"", "/.", "rawdata"}], "//", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"\"\<zero\>\"", ",", "\"\<lambda\>\""}], "}"}], "/.", "#"}],
+         "&"}]}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"tb2", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{"0", ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"Length", "[", "tb1", "]"}]}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Do", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"tb2", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "=", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"tb1", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "//", 
+          RowBox[{
+           RowBox[{"#", "/.", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"a_", ",", 
+               RowBox[{"{", "b_", "}"}]}], "}"}], ":>", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"ToExpression", "[", 
+                 RowBox[{"StringReplace", "[", 
+                  RowBox[{"a", ",", 
+                   RowBox[{"\"\<e\>\"", "\[Rule]", "\"\<*10^\>\""}]}], "]"}], 
+                 "]"}], "+", "i", "-", "1"}], ",", 
+               RowBox[{"ToExpression", "[", 
+                RowBox[{"StringReplace", "[", 
+                 RowBox[{"b", ",", 
+                  RowBox[{"\"\<e\>\"", "\[Rule]", "\"\<*10^\>\""}]}], "]"}], 
+                "]"}], ",", 
+               RowBox[{"i", "-", "1"}]}], "}"}]}]}], "&"}]}], ")"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "tb1", "]"}]}], "}"}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"tb3", "=", 
+      RowBox[{
+       RowBox[{"tb2", "//", 
+        RowBox[{
+         RowBox[{"DeleteCases", "[", 
+          RowBox[{"#", ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<zero\>\"", ",", "\"\<lambda\>\""}], "}"}]}], "]"}], 
+         "&"}]}], "//", 
+       RowBox[{
+        RowBox[{"Flatten", "[", 
+         RowBox[{"#", ",", "1"}], "]"}], "&"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"tb4", "=", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"tb3", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "1"}], "]"}], "]"}], ",", 
+          RowBox[{"tb3", "[", 
+           RowBox[{"[", 
+            RowBox[{"i", ",", "3"}], "]"}], "]"}], ",", 
+          RowBox[{"2", 
+           FractionBox[
+            RowBox[{
+             RowBox[{"tb3", "[", 
+              RowBox[{"[", 
+               RowBox[{"i", ",", "2"}], "]"}], "]"}], "^", "2"}], 
+            RowBox[{"DampedRational", "[", 
+             RowBox[{"2", ",", 
+              RowBox[{"{", "}"}], ",", 
+              SuperscriptBox["E", 
+               RowBox[{
+                RowBox[{"-", "2"}], "\[Pi]"}]], ",", 
+              RowBox[{"tb3", "[", 
+               RowBox[{"[", 
+                RowBox[{"i", ",", "1"}], "]"}], "]"}]}], "]"}]]}]}], "}"}], 
+        ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "1", ",", 
+          RowBox[{"Length", "[", "tb3", "]"}]}], "}"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"DeleteFile", "[", "\"\<new.json\>\"", "]"}], ";", 
+     "\[IndentingNewLine]", "tb4"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.880590226666718*^9, 3.880590227023425*^9}, 
+   3.88059072762545*^9, {3.8805949350254602`*^9, 3.8805949485296*^9}, {
+   3.883236787430408*^9, 3.883236791764378*^9}, {3.883476059648379*^9, 
+   3.883476067895623*^9}, 3.8853368516578712`*^9, 3.8853372604685907`*^9, {
+   3.8853374216523523`*^9, 3.885337427949375*^9}, 3.885337518062089*^9},
+ CellLabel->"In[76]:=",ExpressionUUID->"8b2a29cf-7d51-4562-b300-963a68cc3fd0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getspectrumminz0", "[", 
+   RowBox[{"cc_", ",", "xmlfile_", ",", "input_"}], "]"}], ":=", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"os", "==", "\"\<mac\>\""}], ",", 
+    RowBox[{"getspectrummacminz0", "[", 
+     RowBox[{"cc", ",", "xmlfile", ",", "input"}], "]"}], ",", 
+    RowBox[{"getspectrumwin10minz0", "[", 
+     RowBox[{"cc", ",", "xmlfile", ",", "input"}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.880594958425576*^9, 3.880594992809517*^9}, {
+  3.88323680224612*^9, 3.883236808095077*^9}},
+ CellLabel->"In[77]:=",ExpressionUUID->"1bf3e8c3-1fb7-407a-913c-0948d2a1651b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Bound Functions", "Subsection",
+ CellChangeTimes->{{3.7923886115722017`*^9, 3.792388612733081*^9}, {
+  3.8925633029476147`*^9, 
+  3.892563307732555*^9}},ExpressionUUID->"a85e6421-5057-4804-bde2-\
+72fb8ac5111b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"scalargap2d", "[", 
+    RowBox[{
+    "deltaPhiSqLowPrecision_", ",", "deltaPhiLowPrecision_", ",", 
+     "derivativeOrder_", ",", " ", "keptPoleOrder_", ",", " ", "Lmax_"}], 
+    "]"}], " ", ":=", "\n", "    ", 
+   RowBox[{"Module", "[", "\n", "        ", 
+    RowBox[{
+     RowBox[{"{", "\n", "            ", 
+      RowBox[{
+       RowBox[{"deltaPhi", "  ", "=", " ", 
+        RowBox[{"SetPrecision", "[", 
+         RowBox[{"deltaPhiLowPrecision", ",", "Nprec"}], "]"}]}], ",", "\n", 
+       "            ", 
+       RowBox[{"deltaPhiSq", " ", "=", " ", 
+        RowBox[{"SetPrecision", "[", 
+         RowBox[{"deltaPhiSqLowPrecision", ",", "Nprec"}], "]"}]}], ",", "\n",
+        "            ", "chiralBlocksPrefactor", ",", "\n", "            ", 
+       "chiralBlockPols", ",", "\n", "            ", 
+       "chiralBlocksWithDeltaPhi", ",", "\n", "            ", "unitOp", ",", 
+       "\n", "            ", "pols", ",", "\n", "            ", "norm", ",", 
+       "\n", "            ", "obj", ",", "\[IndentingNewLine]", "repzzbDeriv",
+        ",", "\[IndentingNewLine]", "polslgeq2", ",", "\[IndentingNewLine]", 
+       "temmessage", ",", "\[IndentingNewLine]", "file", ",", 
+       "\[IndentingNewLine]", "input", ",", "\[IndentingNewLine]", "polsl0"}],
+       "\n", "        ", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"file", "=", "\"\<sgap2d.xml\>\""}], ";", "\[IndentingNewLine]", 
+      RowBox[{"input", "=", "\"\<sgap2d\>\""}], ";", "\n", "        ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"chiralBlocksPrefactor", ",", " ", "chiralBlockPols"}], "}"}],
+        " ", "=", " ", 
+       RowBox[{"chiralBlockTable", "[", 
+        RowBox[{"derivativeOrder", ",", " ", "keptPoleOrder"}], "]"}]}], ";", 
+      "\n", "        ", 
+      RowBox[{"chiralBlocksWithDeltaPhi", " ", "=", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"withDeltaPhiDerivTable", "[", 
+          RowBox[{"deltaPhi", ",", " ", "derivativeOrder"}], "]"}], " ", "/.",
+          " ", "chiralBlockPols"}], "//", "FunctionExpand"}]}], ";", "\n", 
+      "     ", 
+      RowBox[{"repzzbDeriv", "=", "   ", 
+       RowBox[{
+        RowBox[{"zzbDeriv", "[", 
+         RowBox[{"m_", ",", "n_"}], "]"}], " ", ":>", " ", 
+        RowBox[{"(", "\n", "                        ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "m", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], " ", "/.", " ", 
+             RowBox[{"x", " ", "->", " ", 
+              RowBox[{"d", "+", "s"}]}]}], ")"}], "\n", 
+           "                        ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "n", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], "/.", 
+             RowBox[{"x", "->", 
+              RowBox[{"d", "-", "s"}]}]}], ")"}]}], " ", "+", " ", "\n", 
+          "                        ", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "n", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], " ", "/.", " ", 
+             RowBox[{"x", " ", "->", 
+              RowBox[{"d", "+", "s"}]}]}], ")"}], "\n", 
+           "                        ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "m", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], "/.", 
+             RowBox[{"x", "->", 
+              RowBox[{"d", "-", "s"}]}]}], ")"}]}]}], ")"}]}]}], ";", "\n", 
+      "        ", 
+      RowBox[{"polslgeq2", "=", 
+       RowBox[{"Table", "[", "\n", "            ", 
+        RowBox[{
+         RowBox[{"PositiveMatrixWithPrefactor", "[", "\n", "                ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"chiralBlocksPrefactor", "/.", 
+              RowBox[{"x", "->", 
+               RowBox[{"x", "+", 
+                RowBox[{"2", "L"}]}]}]}], ")"}], " ", 
+            RowBox[{"(", "chiralBlocksPrefactor", ")"}]}], ",", "\n", 
+           "                ", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "These", " ", "are", " ", "1", "x1", " ", "matrices", " ", "of", 
+             " ", "polynomial", " ", "vectors"}], " ", "*)"}], "\n", 
+           "                ", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"oddDerivs", "[", "derivativeOrder", "]"}], "/.", 
+                "repzzbDeriv"}], "//", 
+               RowBox[{
+                RowBox[{"#", "/.", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"d", "->", 
+                    RowBox[{"x", "+", "L"}]}], ",", 
+                   RowBox[{"s", "->", "L"}]}], "}"}]}], "&"}]}], "//", 
+              "Expand"}], "}"}], "}"}]}], "]"}], ",", "\n", "            ", 
+         RowBox[{"{", 
+          RowBox[{"L", ",", " ", "2", ",", " ", "Lmax", ",", " ", "2"}], 
+          "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"polsl0", "=", "  ", 
+       RowBox[{"{", 
+        RowBox[{"PositiveMatrixWithPrefactor", "[", "\n", "                ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"chiralBlocksPrefactor", "/.", 
+             RowBox[{"{", 
+              RowBox[{"x", "->", 
+               RowBox[{"x", "+", "deltaPhiSq"}]}], "}"}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"chiralBlocksPrefactor", "/.", 
+             RowBox[{"{", 
+              RowBox[{"x", "->", 
+               RowBox[{"x", "+", "deltaPhiSq"}]}], "}"}]}], ")"}]}], ",", 
+          "\n", "                ", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "These", " ", "are", " ", "1", "x1", " ", "matrices", " ", "of", 
+            " ", "polynomial", " ", "vectors"}], " ", "*)"}], "\n", 
+          "                ", 
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"oddDerivs", "[", "derivativeOrder", "]"}], "/.", 
+               "repzzbDeriv"}], "//", 
+              RowBox[{
+               RowBox[{"#", "/.", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"d", "->", 
+                   RowBox[{"x", "+", "deltaPhiSq"}]}], ",", 
+                  RowBox[{"s", "->", "0"}]}], "}"}]}], "&"}]}], "//", 
+             "Expand"}], "}"}], "}"}]}], "]"}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"pols", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{"polslgeq2", ",", "polsl0"}], "]"}]}], ";", "\n", "     ", 
+      RowBox[{"unitOp", " ", "=", " ", 
+       RowBox[{"Fblocksingle2d", "[", 
+        RowBox[{"deltaPhi", ",", "0", ",", "0", ",", "derivativeOrder"}], 
+        "]"}]}], ";", "\n", "        ", 
+      RowBox[{"norm", " ", "=", " ", "unitOp"}], ";", "\n", "        ", 
+      RowBox[{"obj", " ", "=", " ", 
+       RowBox[{"0", "*", "norm"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"WriteBootstrapSDP", "[", 
+       RowBox[{"file", ",", 
+        RowBox[{"SDP", "[", 
+         RowBox[{"obj", ",", "norm", ",", "pols"}], "]"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"temmessage", "=", 
+       RowBox[{"runsdpbfeasbility", "[", 
+        RowBox[{"file", ",", "input"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"DeleteFile", "[", "file", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"DeleteFile", "[", "input", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"DeleteDirectory", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"input", ",", "\"\<.ck\>\""}], "}"}], "]"}], ",", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"input", ",", "\"\<_out\>\""}], "}"}], "]"}]}], "}"}], 
+        ",", 
+        RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "temmessage"}]}], "\[IndentingNewLine]", "]"}]}],
+   ";"}]], "Input",
+ CellChangeTimes->{{3.890506824420929*^9, 3.8905068311996593`*^9}, {
+   3.890506911916747*^9, 3.890506926657879*^9}, {3.890506977409004*^9, 
+   3.890507163525632*^9}, {3.890507596407064*^9, 3.890507660202392*^9}, {
+   3.890507755329604*^9, 3.890507779225499*^9}, {3.890507819921591*^9, 
+   3.890507929499824*^9}, {3.89050798727897*^9, 3.8905080729794693`*^9}, {
+   3.890508110236134*^9, 3.890508125634844*^9}, {3.8905081576214743`*^9, 
+   3.890508246343182*^9}, {3.890508300686042*^9, 3.890508311752884*^9}, {
+   3.890508375279852*^9, 3.890508456779571*^9}, {3.8905086485123587`*^9, 
+   3.8905087147225733`*^9}, {3.890508864588523*^9, 3.890508871696369*^9}, {
+   3.890509011192773*^9, 3.8905090378860283`*^9}, {3.89050910774804*^9, 
+   3.890509125615399*^9}, {3.8910814603115296`*^9, 3.8910814710266066`*^9}, {
+   3.891085429010149*^9, 3.8910854386412005`*^9}, {3.8910857235934534`*^9, 
+   3.8910857263218756`*^9}, {3.891085810666211*^9, 3.891085816688594*^9}, {
+   3.8910858482728043`*^9, 3.89108584843989*^9}, {3.891085895617214*^9, 
+   3.8910859061612215`*^9}, {3.891085937704131*^9, 3.8910859520720186`*^9}, {
+   3.8919635887097397`*^9, 3.89196359161334*^9}, {3.891964426304394*^9, 
+   3.891964427312359*^9}, {3.891965106196629*^9, 3.8919651800988817`*^9}, {
+   3.891965278751155*^9, 3.891965342086439*^9}, {3.891965725041362*^9, 
+   3.891965727832509*^9}, {3.8919657723528852`*^9, 3.8919658248087263`*^9}, {
+   3.8919659158412*^9, 3.891965972501011*^9}, {3.891966068723665*^9, 
+   3.891966075195382*^9}, {3.8919661739230022`*^9, 3.8919661905848713`*^9}, {
+   3.8919663801731*^9, 3.89196638286193*^9}, {3.8919664671845627`*^9, 
+   3.891966471217506*^9}, 3.8919665214552383`*^9, {3.8919665770168667`*^9, 
+   3.891966587840489*^9}, {3.8919666376198597`*^9, 3.891966639130781*^9}, 
+   3.891966710835239*^9, {3.891966751992223*^9, 3.891966759017915*^9}, {
+   3.891966835202338*^9, 3.891966883399925*^9}, {3.891966984145053*^9, 
+   3.8919670220481358`*^9}, 3.891967073614802*^9, {3.8919681799757977`*^9, 
+   3.8919682344716988`*^9}, {3.892563362632271*^9, 3.892563374192807*^9}, {
+   3.8925813776385736`*^9, 3.8925814089195538`*^9}, {3.89258145050611*^9, 
+   3.892581459374769*^9}, {3.892581527245673*^9, 3.892581571834815*^9}, {
+   3.892581614102726*^9, 3.892581716728326*^9}, {3.892581753459136*^9, 
+   3.892581858441078*^9}, {3.892581956341502*^9, 3.892582047550692*^9}, {
+   3.892582220638438*^9, 3.892582282368589*^9}, {3.892582348975584*^9, 
+   3.892582351453981*^9}, {3.892582433878641*^9, 3.8925824437983713`*^9}, {
+   3.892582478063438*^9, 3.8925825217541227`*^9}, {3.89258282471733*^9, 
+   3.8925828795494337`*^9}, {3.8925837939365673`*^9, 
+   3.8925838083369427`*^9}, {3.8925842022780647`*^9, 3.892584211332199*^9}, {
+   3.8926280426199293`*^9, 3.892628061630928*^9}, {3.8926287380388927`*^9, 
+   3.892628746987814*^9}, {3.892631657539256*^9, 3.892631667940419*^9}, {
+   3.892924326859375*^9, 3.8929243370236263`*^9}, {3.892924478861423*^9, 
+   3.892924592582242*^9}, {3.892924635912755*^9, 3.892924856369568*^9}, {
+   3.892924910264839*^9, 3.892925048480597*^9}, {3.892925121638072*^9, 
+   3.892925145604383*^9}, {3.892926446364791*^9, 3.892926489592696*^9}, {
+   3.8929353312861137`*^9, 3.8929354256426497`*^9}, 3.89293560843583*^9, {
+   3.892935812277383*^9, 3.892935862510539*^9}, {3.892936254370865*^9, 
+   3.8929362842924356`*^9}, 3.892936646488083*^9, {3.8929372063227673`*^9, 
+   3.892937229815844*^9}, {3.8929427963355923`*^9, 3.892942806342001*^9}, {
+   3.89294297791011*^9, 3.892942980939919*^9}, {3.8929430717379713`*^9, 
+   3.89294307476296*^9}, {3.892945716931575*^9, 3.8929457198315697`*^9}},
+ CellLabel->"In[78]:=",ExpressionUUID->"774f3688-dc28-4db3-8be9-2d2b6785f73c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"d2maxT", "[", 
+    RowBox[{
+    "deltaPhiSqLowPrecision_", ",", "deltaPhiLowPrecision_", ",", 
+     "derivativeOrder_", ",", " ", "keptPoleOrder_", ",", " ", "Lmax_"}], 
+    "]"}], ":=", "\n", "    ", 
+   RowBox[{"Module", "[", "\n", "        ", 
+    RowBox[{
+     RowBox[{"{", "\n", "            ", 
+      RowBox[{
+       RowBox[{"deltaPhi", "  ", "=", " ", 
+        RowBox[{"SetPrecision", "[", 
+         RowBox[{"deltaPhiLowPrecision", ",", "Nprec"}], "]"}]}], ",", "\n", 
+       "            ", 
+       RowBox[{"deltaPhiSq", " ", "=", " ", 
+        RowBox[{"SetPrecision", "[", 
+         RowBox[{"deltaPhiSqLowPrecision", ",", "Nprec"}], "]"}]}], ",", "\n",
+        "            ", "chiralBlocksPrefactor", ",", "\n", "            ", 
+       "chiralBlockPols", ",", "\n", "            ", 
+       "chiralBlocksWithDeltaPhi", ",", "\n", "            ", "unitOp", ",", 
+       "\n", "            ", "pols", ",", "\n", "            ", "norm", ",", 
+       "\n", "            ", "obj", ",", "\[IndentingNewLine]", "repzzbDeriv",
+        ",", "\[IndentingNewLine]", "polslgeq2", ",", "\[IndentingNewLine]", 
+       "temmessage", ",", "\[IndentingNewLine]", "file", ",", 
+       "\[IndentingNewLine]", "input", ",", "\[IndentingNewLine]", "polsl0", 
+       ",", "\[IndentingNewLine]", "Vec1", ",", "\[IndentingNewLine]", 
+       "opemax"}], "\n", "        ", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"file", "=", "\"\<sgap2dmaxT.xml\>\""}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"input", "=", "\"\<sgap2dmaxT\>\""}], ";", "\n", "        ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"chiralBlocksPrefactor", ",", " ", "chiralBlockPols"}], "}"}],
+        " ", "=", " ", 
+       RowBox[{"chiralBlockTable", "[", 
+        RowBox[{"derivativeOrder", ",", " ", "keptPoleOrder"}], "]"}]}], ";", 
+      "\n", "        ", 
+      RowBox[{"chiralBlocksWithDeltaPhi", " ", "=", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"withDeltaPhiDerivTable", "[", 
+          RowBox[{"deltaPhi", ",", " ", "derivativeOrder"}], "]"}], " ", "/.",
+          " ", "chiralBlockPols"}], "//", "FunctionExpand"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"repzzbDeriv", "=", "   ", 
+       RowBox[{
+        RowBox[{"zzbDeriv", "[", 
+         RowBox[{"m_", ",", "n_"}], "]"}], " ", ":>", " ", 
+        RowBox[{"(", "\n", "                        ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "m", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], " ", "/.", " ", 
+             RowBox[{"x", " ", "->", " ", 
+              RowBox[{"d", "+", "s"}]}]}], ")"}], "\n", 
+           "                        ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "n", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], "/.", 
+             RowBox[{"x", "->", 
+              RowBox[{"d", "-", "s"}]}]}], ")"}]}], " ", "+", " ", "\n", 
+          "                        ", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "n", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], " ", "/.", " ", 
+             RowBox[{"x", " ", "->", 
+              RowBox[{"d", "+", "s"}]}]}], ")"}], "\n", 
+           "                        ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "m", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], "/.", 
+             RowBox[{"x", "->", 
+              RowBox[{"d", "-", "s"}]}]}], ")"}]}]}], ")"}]}]}], ";", "\n", 
+      "        ", 
+      RowBox[{"polslgeq2", "=", 
+       RowBox[{"Table", "[", "\n", "            ", 
+        RowBox[{
+         RowBox[{"PositiveMatrixWithPrefactor", "[", "\n", "                ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"chiralBlocksPrefactor", "/.", 
+              RowBox[{"x", "->", 
+               RowBox[{"x", "+", 
+                RowBox[{"2", "L"}]}]}]}], ")"}], " ", 
+            RowBox[{"(", 
+             RowBox[{"chiralBlocksPrefacto", "\[IndentingNewLine]", "r"}], 
+             ")"}]}], ",", "\n", "                ", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "These", " ", "are", " ", "1", "x1", " ", "matrices", " ", "of", 
+             " ", "polynomial", " ", "vectors"}], " ", "*)"}], "\n", 
+           "                ", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"oddDerivs", "[", "derivativeOrder", "]"}], "/.", 
+                "repzzbDeriv"}], "//", 
+               RowBox[{
+                RowBox[{"#", "/.", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"d", "->", 
+                    RowBox[{"x", "+", "L"}]}], ",", 
+                   RowBox[{"s", "->", "L"}]}], "}"}]}], "&"}]}], "//", 
+              "Expand"}], "}"}], "}"}]}], "]"}], ",", "\n", "            ", 
+         RowBox[{"{", 
+          RowBox[{"L", ",", " ", "2", ",", " ", "Lmax", ",", " ", "2"}], 
+          "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"polsl0", "=", "  ", 
+       RowBox[{"{", 
+        RowBox[{"PositiveMatrixWithPrefactor", "[", "\n", "                ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"chiralBlocksPrefactor", "/.", 
+             RowBox[{"{", 
+              RowBox[{"x", "->", 
+               RowBox[{"x", "+", "deltaPhiSq"}]}], "}"}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"chiralBlocksPrefactor", "/.", 
+             RowBox[{"{", 
+              RowBox[{"x", "->", 
+               RowBox[{"x", "+", "deltaPhiSq"}]}], "}"}]}], ")"}]}], ",", 
+          "\n", "                ", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "These", " ", "are", " ", "1", "x1", " ", "matrices", " ", "of", 
+            " ", "polynomial", " ", "vectors"}], " ", "*)"}], "\n", 
+          "                ", 
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"oddDerivs", "[", "derivativeOrder", "]"}], "/.", 
+               "repzzbDeriv"}], "//", 
+              RowBox[{
+               RowBox[{"#", "/.", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"d", "->", 
+                   RowBox[{"x", "+", "deltaPhiSq"}]}], ",", 
+                  RowBox[{"s", "->", "0"}]}], "}"}]}], "&"}]}], "//", 
+             "Expand"}], "}"}], "}"}]}], "]"}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"pols", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{"polslgeq2", ",", "polsl0"}], "]"}]}], ";", "\n", "        ", 
+      RowBox[{"norm", " ", "=", 
+       RowBox[{"Fblocksingle2d", "[", 
+        RowBox[{"deltaPhi", ",", "2", ",", "2", ",", "derivativeOrder"}], 
+        "]"}]}], ";", "\n", "        ", 
+      RowBox[{"obj", " ", "=", 
+       RowBox[{"Fblocksingle2d", "[", 
+        RowBox[{"deltaPhi", ",", "0", ",", "0", ",", "derivativeOrder"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"WriteBootstrapSDP", "[", 
+       RowBox[{"file", ",", 
+        RowBox[{"SDP", "[", 
+         RowBox[{"obj", ",", "norm", ",", "pols"}], "]"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"runsdpbobj", "[", 
+          RowBox[{"file", ",", "input"}], "]"}], "==", 
+         "\"\<found primal-dual optimal solution\>\""}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Vec1", "=", 
+          RowBox[{"Readfunctional", "[", 
+           RowBox[{"input", ",", "norm"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"opemax", "=", 
+          RowBox[{"-", 
+           RowBox[{"Vec1", ".", "obj"}]}]}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Vec1", "=", "0"}], ";", 
+         RowBox[{"opemax", "=", "\"\<No bound\>\""}]}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"DeleteFile", "[", "file", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"DeleteFile", "[", "input", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"DeleteDirectory", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"input", ",", "\"\<.ck\>\""}], "}"}], "]"}], ",", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"input", ",", "\"\<_out\>\""}], "}"}], "]"}]}], "}"}], 
+        ",", 
+        RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "opemax"}]}], "\[IndentingNewLine]", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.892926916137281*^9, 3.89292692682684*^9}, {
+   3.892927059383523*^9, 3.892927060209573*^9}, {3.892935004881208*^9, 
+   3.8929350099614563`*^9}, {3.892938799793312*^9, 3.892938939407235*^9}, {
+   3.892940280731461*^9, 3.892940286660759*^9}, {3.892940835502225*^9, 
+   3.892940836180995*^9}, {3.892941010877462*^9, 3.892941011274116*^9}, {
+   3.8929410429309673`*^9, 3.892941043953025*^9}, {3.892941258934269*^9, 
+   3.89294126015479*^9}, {3.892941291654747*^9, 3.892941312523457*^9}, {
+   3.892941548601204*^9, 3.892941567089631*^9}, {3.892941811933855*^9, 
+   3.8929418124686604`*^9}, {3.892942867772717*^9, 3.892942881607421*^9}, {
+   3.892942960834955*^9, 3.892942973602314*^9}, {3.892943050687821*^9, 
+   3.892943052029002*^9}, {3.892945448322764*^9, 3.892945451035166*^9}, 
+   3.892945709801281*^9},
+ CellLabel->"In[79]:=",ExpressionUUID->"0d23212c-54f7-4fb9-83b1-451fa93a619a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"scalargap2dcentralcharge", "[", 
+    RowBox[{
+    "c_", ",", "deltaPhiSqLowPrecision_", ",", "deltaPhiLowPrecision_", ",", 
+     "derivativeOrder_", ",", " ", "keptPoleOrder_", ",", "Lmax_"}], "]"}], 
+   " ", ":=", "\n", "    ", 
+   RowBox[{"Module", "[", "\n", "        ", 
+    RowBox[{
+     RowBox[{"{", "\n", "            ", 
+      RowBox[{
+       RowBox[{"deltaPhi", "  ", "=", " ", 
+        RowBox[{"SetPrecision", "[", 
+         RowBox[{"deltaPhiLowPrecision", ",", "Nprec"}], "]"}]}], ",", "\n", 
+       "            ", 
+       RowBox[{"deltaPhiSq", " ", "=", " ", 
+        RowBox[{"SetPrecision", "[", 
+         RowBox[{"deltaPhiSqLowPrecision", ",", "Nprec"}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"cc", "=", 
+        RowBox[{"SetPrecision", "[", 
+         RowBox[{"c", ",", "Nprec"}], "]"}]}], ",", "\n", "            ", 
+       "chiralBlocksPrefactor", ",", "\n", "            ", "chiralBlockPols", 
+       ",", "\n", "            ", "chiralBlocksWithDeltaPhi", ",", "\n", 
+       "            ", "unitOp", ",", "\n", "            ", "pols", ",", "\n",
+        "            ", "norm", ",", "\n", "            ", "obj", ",", 
+       "\[IndentingNewLine]", "repzzbDeriv", ",", "\[IndentingNewLine]", 
+       "polslgeq4", ",", "\[IndentingNewLine]", "temmessage", ",", 
+       "\[IndentingNewLine]", "file", ",", "\[IndentingNewLine]", "input", 
+       ",", "\[IndentingNewLine]", "polsl0", ",", "\[IndentingNewLine]", 
+       "polsl2"}], "\n", "        ", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"file", "=", "\"\<sgap2d.xml\>\""}], ";", "\[IndentingNewLine]", 
+      RowBox[{"input", "=", "\"\<sgap2d\>\""}], ";", "\n", "        ", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"chiralBlocksPrefactor", ",", " ", "chiralBlockPols"}], "}"}],
+        " ", "=", " ", 
+       RowBox[{"chiralBlockTable", "[", 
+        RowBox[{"derivativeOrder", ",", " ", "keptPoleOrder"}], "]"}]}], ";", 
+      "\n", "        ", 
+      RowBox[{"chiralBlocksWithDeltaPhi", " ", "=", " ", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"withDeltaPhiDerivTable", "[", 
+          RowBox[{"deltaPhi", ",", " ", "derivativeOrder"}], "]"}], " ", "/.",
+          " ", "chiralBlockPols"}], "//", "FunctionExpand"}]}], ";", "\n", 
+      "     ", 
+      RowBox[{"repzzbDeriv", "=", "   ", 
+       RowBox[{
+        RowBox[{"zzbDeriv", "[", 
+         RowBox[{"m_", ",", "n_"}], "]"}], " ", ":>", " ", 
+        RowBox[{"(", "\n", "                        ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "m", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], " ", "/.", " ", 
+             RowBox[{"x", " ", "->", " ", 
+              RowBox[{"d", "+", "s"}]}]}], ")"}], "\n", 
+           "                        ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "n", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], "/.", 
+             RowBox[{"x", "->", 
+              RowBox[{"d", "-", "s"}]}]}], ")"}]}], " ", "+", " ", "\n", 
+          "                        ", 
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "n", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], " ", "/.", " ", 
+             RowBox[{"x", " ", "->", 
+              RowBox[{"d", "+", "s"}]}]}], ")"}], "\n", 
+           "                        ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"withDeltaPhiDeriv", "[", "m", "]"}], "/.", 
+              "chiralBlocksWithDeltaPhi"}], "/.", 
+             RowBox[{"x", "->", 
+              RowBox[{"d", "-", "s"}]}]}], ")"}]}]}], ")"}]}]}], ";", "\n", 
+      "        ", 
+      RowBox[{"polslgeq4", "=", 
+       RowBox[{"Table", "[", "\n", "            ", 
+        RowBox[{
+         RowBox[{"PositiveMatrixWithPrefactor", "[", "\n", "                ", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"chiralBlocksPrefactor", "/.", 
+              RowBox[{"x", "->", 
+               RowBox[{"x", "+", 
+                RowBox[{"2", "L"}]}]}]}], ")"}], " ", 
+            RowBox[{"(", "chiralBlocksPrefactor", ")"}]}], ",", "\n", 
+           "                ", 
+           RowBox[{"(*", " ", 
+            RowBox[{
+            "These", " ", "are", " ", "1", "x1", " ", "matrices", " ", "of", 
+             " ", "polynomial", " ", "vectors"}], " ", "*)"}], "\n", 
+           "                ", 
+           RowBox[{"{", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{
+                RowBox[{"oddDerivs", "[", "derivativeOrder", "]"}], "/.", 
+                "repzzbDeriv"}], "//", 
+               RowBox[{
+                RowBox[{"#", "/.", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"d", "->", 
+                    RowBox[{"x", "+", "L"}]}], ",", 
+                   RowBox[{"s", "->", "L"}]}], "}"}]}], "&"}]}], "//", 
+              "Expand"}], "}"}], "}"}]}], "]"}], ",", "\n", "            ", 
+         RowBox[{"{", 
+          RowBox[{"L", ",", " ", "4", ",", " ", "Lmax", ",", " ", "2"}], 
+          "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"polsl2", "=", "  ", 
+       RowBox[{"{", 
+        RowBox[{"PositiveMatrixWithPrefactor", "[", "\n", "                ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"chiralBlocksPrefactor", "/.", 
+             RowBox[{"x", "->", 
+              RowBox[{"x", "+", "1"}]}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"chiralBlocksPrefactor", "/.", 
+             RowBox[{"x", "->", 
+              RowBox[{"x", "+", "5"}]}]}], ")"}]}], ",", "\n", 
+          "                ", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "These", " ", "are", " ", "1", "x1", " ", "matrices", " ", "of", 
+            " ", "polynomial", " ", "vectors"}], " ", "*)"}], "\n", 
+          "                ", 
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"oddDerivs", "[", "derivativeOrder", "]"}], "/.", 
+               "repzzbDeriv"}], "//", 
+              RowBox[{
+               RowBox[{"#", "/.", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"d", "->", 
+                   RowBox[{"x", "+", "3"}]}], ",", 
+                  RowBox[{"s", "->", "2"}]}], "}"}]}], "&"}]}], "//", 
+             "Expand"}], "}"}], "}"}]}], "]"}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"polsl0", "=", "  ", 
+       RowBox[{"{", 
+        RowBox[{"PositiveMatrixWithPrefactor", "[", "\n", "                ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"chiralBlocksPrefactor", "/.", 
+             RowBox[{"{", 
+              RowBox[{"x", "->", 
+               RowBox[{"x", "+", "deltaPhiSq"}]}], "}"}]}], ")"}], " ", 
+           RowBox[{"(", 
+            RowBox[{"chiralBlocksPrefactor", "/.", 
+             RowBox[{"{", 
+              RowBox[{"x", "->", 
+               RowBox[{"x", "+", "deltaPhiSq"}]}], "}"}]}], ")"}]}], ",", 
+          "\n", "                ", 
+          RowBox[{"(*", " ", 
+           RowBox[{
+           "These", " ", "are", " ", "1", "x1", " ", "matrices", " ", "of", 
+            " ", "polynomial", " ", "vectors"}], " ", "*)"}], "\n", 
+          "                ", 
+          RowBox[{"{", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"oddDerivs", "[", "derivativeOrder", "]"}], "/.", 
+               "repzzbDeriv"}], "//", 
+              RowBox[{
+               RowBox[{"#", "/.", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"d", "->", 
+                   RowBox[{"x", "+", "deltaPhiSq"}]}], ",", 
+                  RowBox[{"s", "->", "0"}]}], "}"}]}], "&"}]}], "//", 
+             "Expand"}], "}"}], "}"}]}], "]"}], "}"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"pols", "=", 
+       RowBox[{"Join", "[", 
+        RowBox[{"polslgeq4", ",", "polsl2", ",", "polsl0"}], "]"}]}], ";", 
+      "\n", "     ", 
+      RowBox[{"unitOp", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"Fblocksingle2d", "[", 
+         RowBox[{"deltaPhi", ",", "0", ",", "0", ",", "derivativeOrder"}], 
+         "]"}], "+", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"2", " ", 
+           SuperscriptBox["deltaPhi", "2"]}], "cc"], 
+         RowBox[{"Fblocksingle2d", "[", 
+          RowBox[{"deltaPhi", ",", "2", ",", "2", ",", "derivativeOrder"}], 
+          "]"}]}]}]}], ";", "\n", "        ", 
+      RowBox[{"norm", " ", "=", " ", "unitOp"}], ";", "\n", "        ", 
+      RowBox[{"obj", " ", "=", " ", 
+       RowBox[{"0", "*", "norm"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"WriteBootstrapSDP", "[", 
+       RowBox[{"file", ",", 
+        RowBox[{"SDP", "[", 
+         RowBox[{"obj", ",", "norm", ",", "pols"}], "]"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"temmessage", "=", 
+       RowBox[{"runsdpbfeasbility", "[", 
+        RowBox[{"file", ",", "input"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"DeleteFile", "[", "file", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"DeleteFile", "[", "input", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"DeleteDirectory", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"input", ",", "\"\<.ck\>\""}], "}"}], "]"}], ",", 
+          RowBox[{"StringJoin", "[", 
+           RowBox[{"{", 
+            RowBox[{"input", ",", "\"\<_out\>\""}], "}"}], "]"}]}], "}"}], 
+        ",", 
+        RowBox[{"DeleteContents", "\[Rule]", "True"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", "temmessage"}]}], "\[IndentingNewLine]", "]"}]}],
+   ";"}]], "Input",
+ CellChangeTimes->{{3.892945203060643*^9, 3.8929452091097107`*^9}, {
+  3.892945247029871*^9, 3.892945314133808*^9}, {3.892945345297327*^9, 
+  3.89294537763043*^9}, {3.89294542075686*^9, 3.89294542304403*^9}, {
+  3.892945984809026*^9, 3.892946030319333*^9}},
+ CellLabel->"In[80]:=",ExpressionUUID->"70f12c23-c997-4f25-904e-292e60c02fbe"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"binarysgap2dglobal", "[", 
+   RowBox[{
+   "c_", ",", "ini_", ",", "final_", ",", "\[CapitalDelta]\[Phi]_", ",", 
+    "\[CapitalLambda]max_", ",", " ", "kappa_", ",", "lmax_", ",", "thesh_"}],
+    "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"ini1", ",", "final1", ",", "temmessage", ",", "finalfun"}], 
+     "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"ini1", "=", "ini"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"final1", "=", "final"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Abs", "[", 
+         RowBox[{"final1", "-", "ini1"}], "]"}], ">=", "thesh"}], ",", 
+       RowBox[{
+        RowBox[{"temmessage", "=", 
+         RowBox[{"scalargap2dcentralcharge", "[", 
+          RowBox[{"c", ",", 
+           FractionBox[
+            RowBox[{"ini1", "+", "final1"}], "2"], ",", 
+           "\[CapitalDelta]\[Phi]", ",", "\[CapitalLambda]max", ",", " ", 
+           "kappa", ",", "lmax"}], "]"}]}], ";", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+           "temmessage", "==", "\"\<found primal-dual optimal solution\>\""}],
+            "||", 
+           RowBox[{
+           "temmessage", "==", "\"\<dual feasible jump detected\>\""}]}], ",", 
+          RowBox[{"final1", "=", 
+           FractionBox[
+            RowBox[{"ini1", "+", "final1"}], "2"]}], ",", 
+          RowBox[{"ini1", "=", 
+           FractionBox[
+            RowBox[{"ini1", "+", "final1"}], "2"]}]}], "]"}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", "final1"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.892946350805491*^9, 3.892946541999484*^9}, {
+  3.892946607619289*^9, 3.892946610631422*^9}},
+ CellLabel->"In[81]:=",ExpressionUUID->"69282644-109b-448c-a7b1-f7e374ec48ca"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Run", "Subsection",
+ CellChangeTimes->{
+  3.894071390028468*^9},ExpressionUUID->"f92673e5-6c60-4a45-8650-\
+a97791bf309e"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{"binarysgap2dglobal", "[", 
+   RowBox[{
+    RowBox[{"14", "/", "5"}], ",", "1", ",", "7", ",", 
+    RowBox[{"4", "/", "5"}], ",", "7", ",", "20", ",", "16", ",", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "6"}]]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.894071404726801*^9, 3.8940714360482826`*^9}, {
+  3.8945121334986925`*^9, 3.8945121336570597`*^9}},
+ EmphasizeSyntaxErrors->True,
+ CellLabel->"In[82]:=",ExpressionUUID->"d4dbb1f8-2e00-47ab-8b5a-7a567a3e01e4"],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   FractionBox["3165007", "1048576"], "//", "N"}]}]], "Input",
+ CellChangeTimes->{{3.894073904244213*^9, 3.894073905163872*^9}, {
+  3.8945121383172593`*^9, 3.894512138481826*^9}},
+ EmphasizeSyntaxErrors->True,
+ CellLabel->"In[82]:=",ExpressionUUID->"54684bb2-b068-4f1a-a157-ee92070bae0f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"binarysgap2dglobal", "[", 
+  RowBox[{
+   RowBox[{"14", "/", "5"}], ",", "1", ",", "3.1", ",", 
+   RowBox[{"4", "/", "5"}], ",", "15", ",", "30", ",", "30", ",", 
+   SuperscriptBox["10", 
+    RowBox[{"-", "6"}]]}], "]"}]], "Input",
+ CellChangeTimes->{{3.8945121595649242`*^9, 3.894512169794567*^9}},
+ CellLabel->"In[82]:=",ExpressionUUID->"5829c3dd-3f4b-48c5-a3a4-65ee27b5cdfe"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetPrecision", "precsm", 
+   "\"\:8981\:6c42\:7684\:7cbe\:5ea6 \\!\\(\\*RowBox[{\\\"200\\\"}]\\) \:5c0f\
+\:4e8e $MinPrecision. \:4f7f\:7528 $MinPrecision.\"", 2, 82, 22, 
+   27922334328357154343, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8945121732593985`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[82]:=",ExpressionUUID->"59779658-4079-4b44-b40d-\
+7f088668d22c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetPrecision", "precsm", 
+   "\"\:8981\:6c42\:7684\:7cbe\:5ea6 \\!\\(\\*RowBox[{\\\"200\\\"}]\\) \:5c0f\
+\:4e8e $MinPrecision. \:4f7f\:7528 $MinPrecision.\"", 2, 82, 23, 
+   27922334328357154343, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8945121732733974`*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[82]:=",ExpressionUUID->"6a3a8af2-59f7-437c-85b4-\
+fee7465ae3a9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetPrecision", "precsm", 
+   "\"\:8981\:6c42\:7684\:7cbe\:5ea6 \\!\\(\\*RowBox[{\\\"200\\\"}]\\) \:5c0f\
+\:4e8e $MinPrecision. \:4f7f\:7528 $MinPrecision.\"", 2, 82, 24, 
+   27922334328357154343, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.894512173282398*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[82]:=",ExpressionUUID->"88493c33-c6e7-42d0-b495-\
+a27fcec9b70d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"\:5728\:672c\:6b21\:8ba1\:7b97\:4e2d\:ff0c\\!\\(\\*StyleBox[RowBox[{\\\"\
+SetPrecision\\\", \\\"::\\\", \\\"precsm\\\"}], \\\"MessageName\\\"]\\) \
+\:7684\:8fdb\:4e00\:6b65\:8f93\:51fa\:5c06\:88ab\:6291\:5236.\"", 2, 82, 25, 
+   27922334328357154343, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.8945121732914*^9},
+ CellLabel->
+  "\:6b63\:5728\:8ba1\:7b97In[82]:=",ExpressionUUID->"c2cd05c5-3929-4ffc-9883-\
+80ba7fb963d9"],
+
+Cell[BoxData["2.758570456504822`"], "Output",
+ CellChangeTimes->{3.894514434559645*^9},
+ CellLabel->"Out[82]=",ExpressionUUID->"732efa67-a8bf-497a-bcb1-e0e804ed8168"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1428., 735.75},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+Magnification->1.5,
+FrontEndVersion->"13.2 for Microsoft Windows (64-bit) (2022\:5e7411\:670818\
+\:65e5)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ba492180-1a27-401a-8149-cd58dec92ada"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 156, 3, 81, "Subsection",ExpressionUUID->"e207cf0e-3bf6-4ec3-8d3a-383e19defd0e"],
+Cell[739, 27, 229, 5, 64, "Input",ExpressionUUID->"5ebfa2dd-ffe2-4bec-a229-35e41502ec19"],
+Cell[971, 34, 867, 14, 71, "Input",ExpressionUUID->"d2452400-785d-47a8-b2dd-53b63b3547c4"],
+Cell[1841, 50, 278, 5, 42, "Input",ExpressionUUID->"3a495112-7f3e-4073-808a-cc4fcbe48a9a"],
+Cell[2122, 57, 220, 4, 42, "Input",ExpressionUUID->"b9e0f4e4-1d6a-428b-897f-c863582c5521"],
+Cell[CellGroupData[{
+Cell[2367, 65, 290, 6, 71, "Input",ExpressionUUID->"c25e80e9-e398-4d62-a420-453877e16480"],
+Cell[2660, 73, 428, 10, 41, "Message",ExpressionUUID->"6e2c56f0-f5cd-41c4-b066-16c9d7a2e327"],
+Cell[3091, 85, 428, 10, 41, "Message",ExpressionUUID->"65804bae-ae96-4b73-8a75-860a94d11113"],
+Cell[3522, 97, 428, 10, 41, "Message",ExpressionUUID->"46af929d-feb6-4d4c-99a7-873f1d4ec4f4"]
+}, Open  ]],
+Cell[3965, 110, 197, 4, 64, "Input",ExpressionUUID->"7d452c5c-c5b9-4696-9ce9-038564a2d17a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4199, 119, 168, 3, 81, "Subsection",ExpressionUUID->"24361b7a-77db-4bc2-937c-d341cadaaae7"],
+Cell[4370, 124, 3072, 86, 483, "Input",ExpressionUUID->"100aa9b1-c89c-409d-b9fb-a169227af89f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7479, 215, 212, 4, 81, "Subsection",ExpressionUUID->"964a5baa-3545-4efe-8ed2-7d0d9abc89a5"],
+Cell[7694, 221, 1612, 30, 435, "Input",ExpressionUUID->"0a879350-ee30-45f7-81ba-ee981ef8f728"],
+Cell[9309, 253, 1181, 30, 177, "Input",ExpressionUUID->"2c4c7eac-c666-4940-ad91-f6dde76d421d"],
+Cell[10493, 285, 1830, 49, 336, "Input",ExpressionUUID->"e39e445b-a1ee-4aa7-b802-f2d834797703"],
+Cell[12326, 336, 1078, 25, 288, "Input",ExpressionUUID->"4ded8c63-9aca-4400-9097-2e938bc856b7"],
+Cell[13407, 363, 592, 14, 96, "Input",ExpressionUUID->"6cb45898-a287-445e-bb41-57d6504e7094"],
+Cell[14002, 379, 3842, 82, 711, "Input",ExpressionUUID->"2d958fdb-d396-4424-8dab-cf885873a22f"],
+Cell[17847, 463, 3265, 70, 605, "Input",ExpressionUUID->"dcd7d24d-8037-4358-ad1f-02edc7011407"],
+Cell[21115, 535, 3680, 80, 630, "Input",ExpressionUUID->"8402814b-1af7-4f30-a2f2-1657152618c0"],
+Cell[24798, 617, 3069, 67, 524, "Input",ExpressionUUID->"c2d718e9-7902-4712-adf4-7a669126067f"],
+Cell[27870, 686, 572, 14, 64, "Input",ExpressionUUID->"c15888fb-b46e-45ee-921c-c6f695c30161"],
+Cell[28445, 702, 6662, 161, 1035, "Input",ExpressionUUID->"932bef83-afa4-4c6e-acaa-0cbcce8a9e63"],
+Cell[35110, 865, 5827, 145, 968, "Input",ExpressionUUID->"8b2a29cf-7d51-4562-b300-963a68cc3fd0"],
+Cell[40940, 1012, 626, 13, 93, "Input",ExpressionUUID->"1bf3e8c3-1fb7-407a-913c-0948d2a1651b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41603, 1030, 216, 4, 81, "Subsection",ExpressionUUID->"a85e6421-5057-4804-bde2-72fb8ac5111b"],
+Cell[41822, 1036, 11940, 241, 1710, "Input",ExpressionUUID->"774f3688-dc28-4db3-8be9-2d2b6785f73c"],
+Cell[53765, 1279, 9873, 224, 1878, "Input",ExpressionUUID->"0d23212c-54f7-4fb9-83b1-451fa93a619a"],
+Cell[63641, 1505, 10461, 244, 2046, "Input",ExpressionUUID->"70f12c23-c997-4f25-904e-292e60c02fbe"],
+Cell[74105, 1751, 1876, 46, 410, "Input",ExpressionUUID->"69282644-109b-448c-a7b1-f7e374ec48ca"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[76018, 1802, 127, 3, 81, "Subsection",ExpressionUUID->"f92673e5-6c60-4a45-8650-a97791bf309e"],
+Cell[76148, 1807, 505, 11, 45, "Input",ExpressionUUID->"d4dbb1f8-2e00-47ab-8b5a-7a567a3e01e4"],
+Cell[76656, 1820, 329, 7, 48, "Input",ExpressionUUID->"54684bb2-b068-4f1a-a157-ee92070bae0f"],
+Cell[CellGroupData[{
+Cell[77010, 1831, 401, 8, 46, "Input",ExpressionUUID->"5829c3dd-3f4b-48c5-a3a4-65ee27b5cdfe"],
+Cell[77414, 1841, 430, 10, 41, "Message",ExpressionUUID->"59779658-4079-4b44-b40d-7f088668d22c"],
+Cell[77847, 1853, 430, 10, 41, "Message",ExpressionUUID->"6a3a8af2-59f7-437c-85b4-fee7465ae3a9"],
+Cell[78280, 1865, 428, 10, 41, "Message",ExpressionUUID->"88493c33-c6e7-42d0-b495-a27fcec9b70d"],
+Cell[78711, 1877, 506, 11, 41, "Message",ExpressionUUID->"c2cd05c5-3929-4ffc-9883-80ba7fb963d9"],
+Cell[79220, 1890, 166, 2, 65, "Output",ExpressionUUID->"732efa67-a8bf-497a-bcb1-e0e804ed8168"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
